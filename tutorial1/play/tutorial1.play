@@ -1,0 +1,16 @@
+
+# This is a 'hello world' playful script
+# This file has a single leaf node instance "display",
+# which runs freely. "display" asks for the "console" resource
+# and since it is granted to it (it does not compete with other leaf
+# nodes for access), it displays its "value" ('hello world !') to the console
+
+
+# root of the playful tree must be called "program"
+program:
+
+	display | value="hello world !"
+
+
+# next step: read commented python code of the display node
+# in <>/playful-tutorial/py/tutorial_py.play, then visit tutorial2

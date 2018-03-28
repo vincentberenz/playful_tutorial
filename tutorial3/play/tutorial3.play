@@ -1,0 +1,26 @@
+
+# In this program, 2 instances of "display" are competing for access
+# to the "console" resource. And only one can be granted the
+# resource at the same time
+
+# The priority keyword is used to decide which instance
+# should get the resource when both instances ask for it,
+# which happens when time_module_5 return True.
+# Priority of 2 being higher than 1, the first instance
+# (printing 'A') wins
+
+# (when time_modulo_5 returns False, the first instance
+# is not activated, and therefore does not ask for the resource,
+# which is attributed to the second instance, printing 'B')
+
+# You may play with the priorities values and observe changes.
+# Note that if you sent a negative priority, the related leaf node
+# never activates
+
+# there is no new python code, you may move to tutorial 4
+
+program:
+
+	display, while time_modulo_5, priority of 2 | value="A"
+	display, priority of 1 | value="B"	
+

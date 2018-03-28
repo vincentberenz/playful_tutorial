@@ -1,0 +1,21 @@
+# Write any (single word) arbitrary strings here to define a resource.
+# Files declaring resources must be called "resources.txt" and be placed
+# in a "config" folder which is contained in a folder with a "__playful__"
+# empty file in it
+
+
+# Resource used in this tutorial for access to console:
+# Only the node which had its access to the console resource
+# granted will display something in the console.
+# This is for pedagogical purposed only as several nodes could uses the console
+# at the same time
+console
+
+# when using playful with a robot,
+# typical resources that could be
+# declared would be "wheels", "left_arm", "head", etc ...
+# so that to ensure several leaf nodes do not send commands to
+# the same joint at the same time
+# "face" resource is used from tutorial 5 and "wheels" from tutorial 8
+face
+wheels

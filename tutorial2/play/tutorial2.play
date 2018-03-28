@@ -1,0 +1,14 @@
+
+# This program is the same as tutorial1,
+# except that display will not be activated all the time:
+# only when the function time_modulo_5 returns True
+# (see the code in ../../py/tutorial_play.py or use the
+# "word" arguments on the playful executable: 'playful word time_modulo_5')
+
+# After checking code and comments in tutorial_play.py, you
+# may visit tutorial3
+
+program:
+
+	display, while time_modulo_5 | value="hello world !"
+

@@ -1,0 +1,42 @@
+
+# In this (almost) final tutorial, our virtual robot chases balls.
+# It always go toward the closest ball ("priority of inv_distance")
+
+# While all the node we encountered so far where Python nodes, the node ball_interaction is a collection
+# of nodes. It is possible to create behavior trees of arbitrary depth.
+
+# Notice the argument passing to "ball_interaction" ('speed=0.1', line 31). Default value for speed is 0.1, but
+# if you change the speed in the program (at line 42), you may notice its value "flows" to parametrize the follow node
+
+# If you fully understand this script, and the related python code, then you understand Playful.
+
+# More explanation regarding the script blow:
+# display robot: shows the robot. In real life that would be your robot simulator (typically no such node when using a physical robot)
+# virtual_balls_detection: simulates the robot perceiving balls. In real life that would run your vision library
+#                          detecting colored balls from camera stream, determining their color and using transforms
+#			   to compute their position
+# targeting_ball: ball_display: for each ball in the scene, spawn a node that display it. In real life, you would not need this.
+# targeting_ball: ball_interaction : for each ball, spawn a robot interactive behavior. The robot can only interact with a single
+#                                    ball at a time. "priority of inv_distance" set the robot to interact with the closest
+
+# "ball_interacting" is defined as:
+#     smile: set the robot to smile when the targeted ball is close
+#     follow : set the robot to go toward the targeted ball
+#
+# Exercise: uncomment "laugh" in the ball_interaction subtree. Can you guess what this will result in ?
+
+
+ball_interaction | speed=0.1 :
+	smile, while distance < 3, priority of 2
+	#laugh, while distance < 7, priority of 1
+	follow | speed=speed
+
+
+program:
+
+	virtual_balls_detection
+	display_robot
+	targeting ball: ball_display
+	targeting ball: ball_interaction, priority of inv_distance | base_score=1.0 ; speed=0.1
+	stay_put, priority of 1
+	

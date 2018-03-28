@@ -1,0 +1,23 @@
+
+# In this tutorial, we introduce the keyword 'targeting'
+# This is the most powerful keyword of playful.
+# But it is counter intuitive.
+
+# To give an intuition where this is going at:
+# Imagine you want the robot to always walk to the closest ball it detects,
+# but you do not know in advance how many balls will be detected by the robot.
+# Because of 'targeting', this is implemented in a single command:
+#      targeting ball: walk_to, priority of 1/distance
+
+# More explanations in:
+# ../py/tutorial_play.py
+
+# In this tutorial, we just display the balls in the console
+# (walking to them is done in tutorial 8)
+
+# the scheme "ball" is declared in ../play/schemes.play
+
+program:
+
+	virtual_balls_detection
+	targeting ball: ball_display

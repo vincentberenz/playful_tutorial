@@ -1,0 +1,17 @@
+
+# This program is exactly the same as tutorial8, except that
+# "ball_interaction" is declared in another playful file: interaction.play in the same folder
+# as this file.
+
+# It is possible to create python code specific to a program this way
+# (and hence avoiding cluttering the python code common to all applications)
+
+
+program:
+
+	virtual_balls_detection
+	display_robot
+	targeting ball: ball_display
+	targeting ball: ball_interaction, priority of inv_distance | base_score=1.0 ; speed=0.1
+	stay_put, priority of 1
+	
