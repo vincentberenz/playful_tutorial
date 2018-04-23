@@ -1,6 +1,8 @@
+# In this tutorial, we will learn how to set dynamic
+# activation priority to nodes.
 
 # This is simular to tutorial 3, with an important change:
-# the priorities are no longer fixed, but changing with time.
+# the priorities are no longer fixed, and are changing with time.
 # See: ../../py/tutorial_play.py for the python code corresponding
 # to time_sin and time_cos.
 

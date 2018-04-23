@@ -1,7 +1,10 @@
+# In this tutorial, we will learn how to set activation priority 
+# to nodes.
 
 # In this program, 2 instances of "display" are competing for access
 # to the "console" resource. And only one can be granted the
-# resource at the same time
+# resource at the same time (i.e. only one instance of "display"
+# can run at the same time)
 
 # The priority keyword is used to decide which instance
 # should get the resource when both instances ask for it,
@@ -11,7 +14,7 @@
 
 # (when time_modulo_5 returns False, the first instance
 # is not activated, and therefore does not ask for the resource,
-# which is attributed to the second instance, printing 'B')
+# which is attributed to the second instance, which prints 'B')
 
 # You may play with the priorities values and observe changes.
 # Note that if you sent a negative priority, the related leaf node

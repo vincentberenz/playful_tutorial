@@ -1,6 +1,9 @@
+# In this tutorial, we will learn how to apply the
+# keywords learned in the previous tutorials to setup
+# more advanced applications, such as an emotional robot.
 
 # Imagine you control a robot with LEDS allowing
-# it to make facial expression. You work on an emotional robot, and
+# it to make facial expressions. You work on an emotional robot, and
 # you want the robot to display the facial expression that corresponds
 # to its mood, e.g. smile when happy.
 # This tutorial implements this.
@@ -15,13 +18,15 @@
 
 # The "cognitive" leaf node (mood_manager) set the "mood" of the robot.
 # See code of the mood_manager in ../../py/tutorial_play.py
-# (cognitive is a big word, but you get the idea)
+# (cognitive is a big word, but you get the idea. In real applicationds, 
+# developpers are likely to create much more interesting mechanisms to 
+# manage the mood of the robot)
 
 # Leaf nodes changing the facial expression of the robot
 # are activated based on the current mood.
 # See code of smile, stay_put and laugh is also in ../../py/tutorial_play.py
 
-# There are 3 versions of the program, which are equivalent but
+# Below, there are 3 versions of the program, which are equivalent but
 # uses various strategies. Comment / uncomment code below
 # to try them all
 

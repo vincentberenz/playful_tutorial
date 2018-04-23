@@ -9,13 +9,17 @@
 # granted will display something in the console.
 # This is for pedagogical purposed only as several nodes could uses the console
 # at the same time
+# "console" resource is used from tutorial 1
+
 console
+
 
 # when using playful with a robot,
 # typical resources that could be
 # declared would be "wheels", "left_arm", "head", etc ...
 # so that to ensure several leaf nodes do not send commands to
-# the same joint at the same time
+# the same joint at the same time.
 # "face" resource is used from tutorial 5 and "wheels" from tutorial 8
+
 face
 wheels

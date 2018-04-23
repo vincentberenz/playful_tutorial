@@ -14,18 +14,16 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-#along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+# along with Playful Tutorial.  If not, see <http://www.gnu.org/licenses/>.
 
 ##############################################################################
-
-
 
 
 import playful,time,math
 from playful_tutorial.py.robot import Playful_tutorial_robot
 
 
-### PLAYFUL TUTORIAL: python leaf nodes and evaluations ###########################################################
+### PLAYFUL TUTORIAL: python leaf nodes and evaluations ###
 
 # This file shows the code of the leaf nodes and evaluations used in all the tutorials.
 
@@ -47,11 +45,13 @@ from playful_tutorial.py.robot import Playful_tutorial_robot
 
 # PYTHON PATH
 # At the top of this file, the playful python module is imported and used.
+# ("import playful")
 # yet, you did not install any playful module.
 # This is normal: the playful module is created on the fly by the playful executable
 
 # Also, the "top" directory (playful_tutorial) is always added to the python path at run time.
-# Therefore the module: <>/playful_tutorial/py/robot.py can be imported by using: playful_tutorial.py.robot
+# Therefore the module: <>/playful_tutorial/py/robot.py was succesfully imported by using: 
+# "import playful_tutorial.py.robot"
 
 # To start this tutorial, visit ../tutorial1/README.txt
 # You will be invited to come back to this file to check the python code used in the playful script
@@ -64,7 +64,7 @@ from playful_tutorial.py.robot import Playful_tutorial_robot
 ##############
 
 # This is a playful leaf node. It asks for access to the "console" resource and
-# (only when having it) display its values
+# (only when having it) displays its value
 class display(playful.Node):
 
     # allowing the playful script to pass the "value" argument
@@ -104,7 +104,7 @@ class display(playful.Node):
                 # prevent other nodes to access the resource
                 self.release_all_resources()
 
-                # note: code here is called even if the resource has not
+                # note: code here may be called even if the resource has not
                 # been taken by this node or when the node already
                 # released the resource. This is fine.
                 
@@ -161,7 +161,7 @@ def time_cos():
 
 # mood manager lead node:
 # manages a virtual "mood" which
-# alternates between "happy", "do not care" and
+# alternates sequentially between "happy", "do not care" and
 # "amused". This node shares the current mood
 # in a shared memory using the "mood" memory key
 class mood_manager(playful.Node):
@@ -187,7 +187,7 @@ class mood_manager(playful.Node):
         
         while not self.should_pause():
 
-            # alternates the mood between "happy",
+            # alternates sequentially the mood between "happy",
             # "do not care" and "amused"
 
             digit = _time_digit()
@@ -204,38 +204,6 @@ class mood_manager(playful.Node):
             playful.console("mood_manager","current mood: "+current_mood)
             
             self.spin(10)
-
-
-# various evaluations reading the mood from shared memory
-# and returning True or False 
-
-def is_of_mood(target_mood=None):
-
-    # reading current mood from the shared memory
-    mood = playful.memory.get_value("mood") 
-
-    if mood is None : # may happen if mood not set yet
-        return False 
-
-    if mood == target_mood :
-        return True    
-
-    return False
-    
-
-def is_happy():
-
-    return is_of_mood(target_mood="happy")
-
-
-def do_not_care():
-
-    return is_of_mood(target_mood="do_not_care")
-
-
-def is_amused():
-
-    return is_of_mood(target_mood="amused")
 
 
 # nodes which set the facial expression of the robot.
@@ -277,6 +245,40 @@ class laugh(set_expression):
         set_expression.__init__(self,expression=":-p")
 
 
+# various evaluations reading the mood from shared memory
+# and returning True or False 
+
+def is_of_mood(target_mood=None):
+
+    # reading current mood from the shared memory
+    mood = playful.memory.get_value("mood") 
+
+    if mood is None : # may happen if mood not set yet
+        return False 
+
+    if mood == target_mood :
+        return True    
+
+    return False
+    
+
+def is_happy():
+
+    return is_of_mood(target_mood="happy")
+
+
+def do_not_care():
+
+    return is_of_mood(target_mood="do_not_care")
+
+
+def is_amused():
+
+    return is_of_mood(target_mood="amused")
+
+
+
+
 # node which displays the robot
 # Playful_tutorial_robot defined in the
 # robot.py file (same folder as this file)
@@ -299,9 +301,10 @@ class display_robot(playful.Node):
 #
 #     targeting ball: walk, while far, priority of inv_distance
 #
-# and this command was valid even when there was in the environment
+# and this command was valid even when there were in the environment
 # several balls, e.g. a red and green one. In such case, playful would
-# instantiate a walk branch for each of the detected ball.
+# instantiate a walk branch for each of the detected ball, and then activate the walk 
+# action regarding the closest ball (i.e. the robot always walks to the closest ball)
 # In tutorial 6, we do something similar with virtual balls, and the python code
 # is there.
 
@@ -314,9 +317,9 @@ class display_robot(playful.Node):
 # Code of properties
 # ------------------
 #
-# A property is basically a holder for an arbitrary chunck of data
-# (to be held in the "self._value" member of the property)
-# e.g. for 'position', the value is a 1D position; for 'color' a string such as "BLUE";
+# A property is basically a holder for an arbitrary chunck of data (i.e. any pytho 
+# object would do) (to be held in the "self._value" member of the property)
+# e.g. for 'position', the value is a 1D position; for 'color' a string (e.g. "BLUE");
 #      and for 'time_stamp' a time value (as returned by time.time())
 # Code is trivial, but there is a suble point to pay attention to:
 # the similarity function returns "None" for position and time_stamp, and "True" or "False"
@@ -329,18 +332,19 @@ class display_robot(playful.Node):
 
 # This may sound obvious, but this has to be encoded somehow. Also note this
 # is arbitrary and application specific. In some case, it is known there can
-# be only one ball in the environment (e.g. by convention, in robot soccer). In other cases, you may want to encode
+# be only one ball in the environment (e.g. by convention, as in robot soccer). In other cases, you may want to encode
 # that if the robot 1) sees a red ball at position p1, followed by 2) sees a red ball
 # at position p2 (which is very far from p1), then the robot saw 2 balls, and not a single ball which
 # moved fast. These considerations may sound weird, but will grantly gain in importance as service robotics advances:
 # a waiter robot will have to reason all day long about the number and motions of surrounding coffee cups. Object permanence
 # is trivial for now only because we ask trivial things to our robots. These considerations are overkill for
-# this tutorial, but we are getting prepared for the future
-# (note: this is overkill, but you may notice that if explanations are long, code below is very short)
+# this tutorial, but we have to get prepared for the future
+# (note: this is overkill, but you may notice that if explanation is long, code below is short)
 
-# If you wish more informaton on the fuse and similarity functions used below, you may read:
+# If you wish more information on the fuse and similarity functions used below, you may read:
 # https://am.is.tuebingen.mpg.de/publications/conf-humanoids-berenztsh11
-# (section 3.A, rest of the paper is deprecated)
+# (only section 3.A, rest of the paper is deprecated. This paper is about TDM, which is Playful's grandpa.
+#  Both systems are similar in regards of schemes and properties).
 
 class position(playful.Property):
 
@@ -375,13 +379,13 @@ class color(playful.Property):
 # Leaf node simulating the perception by robot of virtual balls
 # (in real applications, this could be a node using for example opencv over a video
 # stream to detect balls, determining their color, computing their absolute position,
-# and pushing related schemes to the memory)
+# and pushing related ball schemes to the memory)
 #
 # This node simulates the follows;
 # From the start, a blue ball is detected; and a green ball is detected
 # 4s after this.
 #
-# This node encodes info into a ball schemes that it pushes to the memory
+# This node encodes info into a ball schemes that it pushes to the memory.
 # The memory uses the similarity and fusing functions to update
 # existing schemes and create new onces.
 #
@@ -392,7 +396,7 @@ class color(playful.Property):
 # If you find all this confusing, this is normal at first. Just notice
 # that the playful script in tutorial 6 is short and elegant.
 #
-# Also, feel free to update the node below to simulate a 3rd red ball, and
+# Also, feel free to uncomment code in the node below to simulate a 3rd red ball, and
 # notice the playful script does not need to be updated:
 #     'targeting ball: display' (in the playful script)
 # will work for any arbitrary number of ball perceived by the robot
@@ -423,7 +427,7 @@ class virtual_balls_detection(playful.Node):
 
         blue = _Position_manager(0,0.2)
         green = _Position_manager(0,0.1)
-        # uncomment for fun
+        #you may uncomment for fun
         #red = _Position_manager(10,0.15)
         
         while not self.should_pause():
@@ -434,8 +438,11 @@ class virtual_balls_detection(playful.Node):
             # "fuse" means the memory compares the incoming scheme with schemes already
             # maintained in the memory (similarity functions of the properties) and either maintain a new
             # scheme or fuse with an existing scheme (fuse functions of the properties)
+
+            # the blue ball is created from start
             playful.memory.fuse(playful.create("ball",position=blue.update(),time_stamp=t,color="BLUE"))
 
+            # the green ball is created 4 seconds after start
             if(t-time_start > 4):
                 playful.memory.fuse(playful.create("ball",position=green.update(),time_stamp=t,color="GREEN"))
 

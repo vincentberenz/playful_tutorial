@@ -1,11 +1,15 @@
+# in this tutorial, we will learn that playful code can be written and reused
+# accross several folders.
 
 # This program is exactly the same as tutorial8, except that
 # "ball_interaction" is declared in another playful file: interaction.play in the same folder
 # as this file.
 
-# It is possible to create python code specific to a program this way
-# (and hence avoiding cluttering the python code common to all applications)
+# It is possible to create playful code specific to a program this way
+# (and hence avoiding cluttering the program code)
 
+# For the next tutorial (tutorial10), read the file tutorial10/play/tutorial10.play
+# before executing the playful script.
 
 program:
 

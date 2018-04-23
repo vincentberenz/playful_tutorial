@@ -1,16 +1,18 @@
+# In this tutorial, we will learn how to create a playful library, i.e.
+# create playful code which may be reused accross projects.
 
-# This program is the same as tutorial9
+# This program is the same as tutorial9,
 # plus a node for displaying position information of all existing schemes (position_logger)
 
-# Code for position logger is found in the playful_tutorial_library (https://git-amd.tuebingen.mpg.de/amd-clmc/playful_tutorial_library.git)
-# This library must be cloned in the same directory as playful_tutorial. Other locations will not work.
+# Code for position logger is located in the playful_tutorial_library (https://github.com/vincentberenz/playful_tutorial_library.git)
+# This library must be cloned in the same directory as playful_tutorial. Other locations will not work. You may clone it now.
 
-# A playful library is a folder has 3 folders: config, play and py. Files and folders in a library work in the exact same ways as the files
+# A playful library is a folder with 3 sub-directories: config, play and py. Files and folders in a library work in the exact same ways as the files
 # we studied in this tutorial. Importing a library will makes its code (python and playful) available in the current project.
 
 # to import a libary in a project, you need:
 # 1. to put it in the same folder as the current project. In this case, playful_tutorial_library should be put in
-#    the same folder playful_tutorial was cloned
+#    the same folder playful_tutorial was cloned (note: not inside playful_tutorial, but at the same level)
 # 2. to import the libary in a imports.txt file in a config folder. In this case, this was done in tutorial10/config/imports.txt
 #    note: it would have been imported in /playful_tutorial/config/imports.txt, playful_tutorial_library would have been
 #          imported for all tutorials.
@@ -23,10 +25,11 @@
 # If the library is cloned at the correct location, 'playful trail' will display which files from the library are imported
 
 # so, to get this tutorial to work:
-# 1. clone https://git-amd.tuebingen.mpg.de/amd-clmc/playful_tutorial_library.git
+# 1. clone https://github.com/vincentberenz/playful_tutorial_library.git
      in the same folder you cloned playful_tutorial
 # 2. check the import in ../config/imports.txt 
-# 3. run 'playful execute' as for the other tutorials.
+# 3. run 'playful trail', and check files from the libraries are included
+# 4. run 'playful execute' as for the other tutorials.
 
 program:
 

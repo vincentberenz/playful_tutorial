@@ -14,14 +14,14 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-#along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+# along with Playful Tutorial.  If not, see <http://www.gnu.org/licenses/>.
 
 ##############################################################################
 
 
 
 # Class representing our simple virtual robot:
-# A facial expression (emoticon) and a 1D position
+# A facial expression (emoticon) and a 1D position.
 # This interface to this simple robot
 # is the equivalent of the robot middleware in real non-trivial applications.
 

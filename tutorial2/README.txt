@@ -1,5 +1,7 @@
 
-From this tutorial: you may directly
+From this tutorial upward, you may:
 
-1. run 'playful execute'
-2. visit the file ./play/tutorial2.play
+1. run 'playful execute' from the tutorial directory 
+   (for this tutorial: <>/playful_tutorial/tutorial2)
+2. visit the play file 
+   (for this tutorial: <>/playful_tutorial/tutorial2/play/tutorial2.play

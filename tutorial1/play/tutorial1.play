@@ -12,5 +12,5 @@ program:
 	display | value="hello world !"
 
 
-# next step: read commented python code of the display node
-# in <>/playful-tutorial/py/tutorial_py.play, then visit tutorial2
+# next step: read the python code of the 'display' node
+# in <>/playful-tutorial/py/tutorial_py.play, then visit <>/playful-tutorial/tutorial2/README.txt

@@ -1,3 +1,6 @@
+# In this tutorial, we will learn that the targeting keyword may not only
+# be used to relate perception to action (as in previous tutorial) but also
+# link perception to evaluation (e.g. deciding to interact with the closest ball)
 
 # In this (almost) final tutorial, our virtual robot chases balls.
 # It always go toward the closest ball ("priority of inv_distance")
@@ -7,19 +10,21 @@
 
 # Notice the argument passing to "ball_interaction" ('speed=0.1', line 31). Default value for speed is 0.1, but
 # if you change the speed in the program (at line 42), you may notice its value "flows" to parametrize the follow node
+# (in this case, speed is applied to "follow")
 
-# If you fully understand this script, and the related python code, then you understand Playful.
+# If you fully understand this script, and the related python code, then you fully understand Playful. Congrats !
 
-# More explanation regarding the script blow:
+# More detailed explanations regarding the script blow:
 # display robot: shows the robot. In real life that would be your robot simulator (typically no such node when using a physical robot)
 # virtual_balls_detection: simulates the robot perceiving balls. In real life that would run your vision library
 #                          detecting colored balls from camera stream, determining their color and using transforms
 #			   to compute their position
-# targeting_ball: ball_display: for each ball in the scene, spawn a node that display it. In real life, you would not need this.
+# targeting_ball: ball_display: for each ball in the scene, spawn a node that displays it. In real life, you would not need this.
 # targeting_ball: ball_interaction : for each ball, spawn a robot interactive behavior. The robot can only interact with a single
-#                                    ball at a time. "priority of inv_distance" set the robot to interact with the closest
+#                                    ball at a time. "priority of inv_distance" set the robot to interact with the closest ball
+#                                    (constantly reevaluated)
 
-# "ball_interacting" is defined as:
+# "ball_interaction" is defined as:
 #     smile: set the robot to smile when the targeted ball is close
 #     follow : set the robot to go toward the targeted ball
 #

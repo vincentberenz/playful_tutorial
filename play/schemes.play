@@ -1,6 +1,6 @@
 ball : scheme
       position, time_stamp, color
 
-# you can add any arbitrary scheme, reusing existing properties and
-# (or new property of your own) Code for position, time_stamp and color is
+# you can add any arbitrary scheme, reusing existing properties
+# (or new property of your own). Code for position, time_stamp and color is
 # in ../py/tutorial_play.py
