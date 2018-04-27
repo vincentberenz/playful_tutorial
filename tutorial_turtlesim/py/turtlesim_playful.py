@@ -12,18 +12,18 @@ try:
 except:
     raise Exception("ROS needs to be installed. Please visit http://www.ros.org/")
     
-#try :
-from turtlesim.srv import Spawn
-from turtlesim.srv import TeleportAbsolute
-from turtlesim.srv import Kill
-#except :
-#    raise Exception("turtlesim.py requires turtlesim to be installed. Please visit http://wiki.ros.org/turtlesim")
+try :
+    from turtlesim.srv import Spawn
+    from turtlesim.srv import TeleportAbsolute
+    from turtlesim.srv import Kill
+except :
+    raise Exception("turtlesim.py requires turtlesim to be installed. Please visit http://wiki.ros.org/turtlesim")
 
 
 _SPAWN_SERVICE = "spawn"
 _VELOCITY_TOPIC = "cmd_vel"
-_TELEPORT_SERVICE = "TeleportAbsolute"
-_KILL_SERVICE = "Kill"
+_TELEPORT_SERVICE = "teleport_absolute"
+_KILL_SERVICE = "kill"
 _PERMANENT_TURTLE_NAME = "turtle1"
 
 
@@ -38,7 +38,7 @@ class Turtlesim:
         
         rospy.wait_for_service(_SPAWN_SERVICE)
         service = rospy.ServiceProxy(_SPAWN_SERVICE, Spawn)
-        response = service(x, y, theta, name)
+        response = service(x, y, theta, None)
 
         return response.name
     
@@ -47,16 +47,11 @@ class Turtlesim:
 
         global _VELOCITY_TOPIC
         global _PERMANENT_TURTLE_NAME
-        
-        # for setting the desired velocity of this turtle
-        self.velocity_publisher = rospy.Publisher(name+"/"+_VELOCITY_TOPIC,
-                                                  Twist, queue_size=10)
-        
 
         # if this is not the first turtlesim to be initialized, it requires to
         # be spawned
         if self.__class__.CALLED_AT_LEAST_ONCE is True:
-            self.name = self._spawn(x,y,theta,name)
+            self.name = self._spawn(x,y,theta)
 
         # otherwise the new turtle is created at 0,0,0 ; not a x,y,theta
         else:
@@ -65,6 +60,11 @@ class Turtlesim:
             self.__class__.CALLED_AT_LEAST_ONCE = True
             
         self.current_velocity = [0,0,0] # [linear x, linear y, angular z]
+
+        # for setting the desired velocity of this turtle
+        self.velocity_publisher = rospy.Publisher(self.name+"/"+_VELOCITY_TOPIC,
+                                                  Twist, queue_size=10)
+        
 
         
     def get_name(self):
@@ -98,7 +98,7 @@ class Turtlesim:
         if angular is not None:
             msg.angular.z = angular
 
-        cls.velocity_publisher.publish(msg)
+        self.velocity_publisher.publish(msg)
 
         
     def teleport(self,x,y,theta):
@@ -106,8 +106,8 @@ class Turtlesim:
         global _TELEPORT_SERVICE
         
         rospy.wait_for_service(self.name+"/"+_TELEPORT_SERVICE)
-        service = rospy.ServiceProxy(self.name+"/"+_TELEPORT_SERVICE, Teleport)
-        service(x, y, theta, name)
+        service = rospy.ServiceProxy(self.name+"/"+_TELEPORT_SERVICE, TeleportAbsolute)
+        service(x, y, theta)
 
         
     def stop(self):
@@ -140,8 +140,8 @@ if __name__ == "__main__":
 
     rospy.init_node('turtlesim_test', anonymous=True)
     
-    turtle1 = spawn_turtle(0,0.1,0)
-    turtle2 = spawn_turtle(0,-0.1,math.pi)
+    turtle1 = spawn_turtle(20,0,0)
+    turtle2 = spawn_turtle(20,0,math.pi)
 
     for _ in range(200):
         turtle1.set_velocity(0.5,0,0.1)
