@@ -490,6 +490,7 @@ def distance(scheme_id=None):
     position = playful.memory.get_property_value("position",scheme_id=scheme_id)
     if not position :
         return float("+inf")
+
     return abs(Playful_tutorial_robot.position-position)
 
 

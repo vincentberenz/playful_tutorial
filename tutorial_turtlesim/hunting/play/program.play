@@ -1,0 +1,26 @@
+
+program:
+
+	# if battery low, going to charger
+	# if battery high, hunting
+	hunting, switch to charging if low_battery, priority of 2 | battery_threshold=10
+	charging, switch to hunting if high_battery, priority of 2 | battery_threshold=80
+
+	# displaying current charge of robot
+	display_charge, priority of 1
+
+	# activating turtle targets detection
+	radar, priority of 1
+
+
+	# definition of hunting and charging
+
+	# charging
+	charging:
+		targeting charger: chase, priority of 1
+
+
+	# chasing closest target
+	hunting:
+		targeting estimated_target : chase, priority of inv_gap | base_score=1
+		targeting target: predict_position, priority of 1

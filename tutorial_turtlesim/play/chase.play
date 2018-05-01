@@ -1,0 +1,6 @@
+
+
+chase :
+    stop, while gap<0.5, priority of 2
+    slide, priority of 1
+    steer, while abs_angle<pi/8, priority of 1
