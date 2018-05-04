@@ -4,7 +4,7 @@ It is meant for professional roboticists who want to acquire the skill to develo
 
 For more information and download of Playful, visit:
 
-    playful.is.tuebingen.mpg.de
+    http://playful.is.tuebingen.mpg.de
 
 To get to Playful tutorials and documentation, visit the wiki:
 
