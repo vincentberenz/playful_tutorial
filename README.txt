@@ -10,4 +10,5 @@ To get to Playful tutorials and documentation, visit the wiki:
 
     https://github.com/vincentberenz/playful_tutorial/wiki
 
+Playful has been developed at the Max Planck Institute for Intelligent Systems, Tuebingen, Germany
 
