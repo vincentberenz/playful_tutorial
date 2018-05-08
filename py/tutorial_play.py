@@ -23,40 +23,14 @@ import playful,time,math
 from playful_tutorial.py.robot import Playful_tutorial_robot
 
 
-### PLAYFUL TUTORIAL: python leaf nodes and evaluations ###
+# ###################################################### #
+#                                                        #
+# For more information, visit the wiki at :              #
+# https://github.com/vincentberenz/playful_tutorial/wiki #
+#                                                        #
+# ###################################################### #
 
-# This file shows the code of the leaf nodes and evaluations used in all the tutorials.
 
-# FILE NAME
-# Note that the name of this file is <something>_play.py.
-# Python files names must end with "_play.py" to be found by the playful interpreter.
-# Once a python file found by playful interpreter, all functions and nodes it contains
-# are made available to the interpreter, except private ones (functions/classes which name starts with "_")
-
-# DIRECTORY NAME
-# Note that this file is in a "py" directory. Only python files in "py" directories
-# will be found by the playful interpreter (with the exception of 'on_start.py' and 'on_stop.py'
-# files which should be in "config" directories)
-
-# FOLDER STRUCTURE
-# Notice the __playful__ empty file in the folder above the py directory in which this file is located.
-# this empty file is required for the python interpreter to understand it is supposed to search for "*_play.py"
-# files in the py directory.
-
-# PYTHON PATH
-# At the top of this file, the playful python module is imported and used.
-# ("import playful")
-# yet, you did not install any playful module.
-# This is normal: the playful module is created on the fly by the playful executable
-
-# Also, the "top" directory (playful_tutorial) is always added to the python path at run time.
-# Therefore the module: <>/playful_tutorial/py/robot.py was succesfully imported by using: 
-# "import playful_tutorial.py.robot"
-
-# To start this tutorial, visit ../tutorial1/README.txt
-# You will be invited to come back to this file to check the python code used in the playful script
-
-###################################################################################################################
 
 
 ##############
@@ -297,55 +271,6 @@ class display_robot(playful.Node):
 # TUTORIAL 6 #
 ##############
 
-# When you read the IEEE robotics and automation article, you saw some playful commands of the like:
-#
-#     targeting ball: walk, while far, priority of inv_distance
-#
-# and this command was valid even when there were in the environment
-# several balls, e.g. a red and green one. In such case, playful would
-# instantiate a walk branch for each of the detected ball, and then activate the walk 
-# action regarding the closest ball (i.e. the robot always walks to the closest ball)
-# In tutorial 6, we do something similar with virtual balls, and the python code
-# is there.
-
-# Using Playful terminology, 'ball' is a scheme. A scheme is
-# a collection of properties. Properties are declared in Python.
-# In this tutorial, a ball consists of 3 properties: position, time_stamp and color.
-# The ball scheme is declared in ../play/schemes.play (check this file)
-# and the code corresponding to these properties is below.
-
-# Code of properties
-# ------------------
-#
-# A property is basically a holder for an arbitrary chunck of data (i.e. any pytho 
-# object would do) (to be held in the "self._value" member of the property)
-# e.g. for 'position', the value is a 1D position; for 'color' a string (e.g. "BLUE");
-#      and for 'time_stamp' a time value (as returned by time.time())
-# Code is trivial, but there is a suble point to pay attention to:
-# the similarity function returns "None" for position and time_stamp, and "True" or "False"
-# for color. This indicate to the playful engine that
-# 1) seeing a red ball
-# followed by
-# 2) seeing a blue ball
-# corresponds to seeing two different balls,
-# (and not seeing a single ball which changed color)
-
-# This may sound obvious, but this has to be encoded somehow. Also note this
-# is arbitrary and application specific. In some case, it is known there can
-# be only one ball in the environment (e.g. by convention, as in robot soccer). In other cases, you may want to encode
-# that if the robot 1) sees a red ball at position p1, followed by 2) sees a red ball
-# at position p2 (which is very far from p1), then the robot saw 2 balls, and not a single ball which
-# moved fast. These considerations may sound weird, but will grantly gain in importance as service robotics advances:
-# a waiter robot will have to reason all day long about the number and motions of surrounding coffee cups. Object permanence
-# is trivial for now only because we ask trivial things to our robots. These considerations are overkill for
-# this tutorial, but we have to get prepared for the future
-# (note: this is overkill, but you may notice that if explanation is long, code below is short)
-
-# If you wish more information on the fuse and similarity functions used below, you may read:
-# https://am.is.tuebingen.mpg.de/publications/conf-humanoids-berenztsh11
-# (only section 3.A, rest of the paper is deprecated. This paper is about TDM, which is Playful's grandpa.
-#  Both systems are similar in regards of schemes and properties).
-
 class position(playful.Property):
 
     def fuse(self,value):
@@ -376,30 +301,6 @@ class color(playful.Property):
 # Code of nodes
 # -------------
 #
-# Leaf node simulating the perception by robot of virtual balls
-# (in real applications, this could be a node using for example opencv over a video
-# stream to detect balls, determining their color, computing their absolute position,
-# and pushing related ball schemes to the memory)
-#
-# This node simulates the follows;
-# From the start, a blue ball is detected; and a green ball is detected
-# 4s after this.
-#
-# This node encodes info into a ball schemes that it pushes to the memory.
-# The memory uses the similarity and fusing functions to update
-# existing schemes and create new onces.
-#
-# When running the tutorial, you may see the program expanding during runtime
-# after 4 seconds : the targeting keyword (in the playful script) commands
-# a new leaf node corresponding to the green ball to be created.
-#
-# If you find all this confusing, this is normal at first. Just notice
-# that the playful script in tutorial 6 is short and elegant.
-#
-# Also, feel free to uncomment code in the node below to simulate a 3rd red ball, and
-# notice the playful script does not need to be updated:
-#     'targeting ball: display' (in the playful script)
-# will work for any arbitrary number of ball perceived by the robot
 class virtual_balls_detection(playful.Node):
 
     def execute(self):

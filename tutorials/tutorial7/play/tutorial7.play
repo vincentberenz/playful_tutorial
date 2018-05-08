@@ -1,22 +1,4 @@
-# In this tutorial, we learn how to connect dynamically perception (here, detection of a ball)
-# to action (here smiling) using the targeting keyword.
-
-# This program set our robot (represented by an emoticon) to smile every time a ball gets close.
-# stay_put is the lower priority facial expression (priority of 1), i.e. the default one when nothing else is going on.
-# When a ball gets close ('while distance<4') then smile activates, and because it is with a priority above
-# stay_put (priority of 1), it overrides it (the "face" resource is attributed to it).
-
-# You may try to update the priority of stay_put to 3: the robot will never smile.
-# (because stay_put holds continuously the 'face' resource, see related code in ../py/tutorial_play.py)
-
-# the code of "distance" (and related comments) in ../py/tutorial_play.py
-
-# To relate to a real application. In script used in the video :
-# https://www.youtube.com/watch?v=dEw4XptasWc
-# there is :
-#    targeting blue_cup: smile, priority of 2
-#    targeting hand: look_surprized, priority of 1
-# if you look carefully, you may see this is what the head of the robot does (among other things)
+# see: https://github.com/vincentberenz/playful_tutorial/wiki
 
 program:
 

@@ -1,18 +1,4 @@
-# In this tutorial, we will learn how to set dynamic
-# activation priority to nodes.
-
-# This is simular to tutorial 3, with an important change:
-# the priorities are no longer fixed, and are changing with time.
-# See: ../../py/tutorial_play.py for the python code corresponding
-# to time_sin and time_cos.
-
-# In this program, even when time_module_5 returns True, the first
-# instance (with value 'A')  does not necessarily activates: the second instance
-# (with value 'B') may (or may not) have higher priority of access to the console resource
-# at this time, blocking the resource.
-
-# When running the program, you may see in the terminal the values at the left 
-# of the node changing: they are the priority as evaluated by time_sin and time_cos
+# see : https://github.com/vincentberenz/playful_tutorial/wiki
 
 program:
 
