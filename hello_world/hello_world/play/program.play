@@ -1,0 +1,5 @@
+program:
+
+	print_hello | hello_to="world"
+	print_time
+	print_exit_instructions
