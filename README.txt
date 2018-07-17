@@ -11,6 +11,10 @@ Is Playful for you ? To get an overview of Playful, visit:
 To get to Playful tutorials instructions and to documentation, visit the wiki:
 
     https://github.com/vincentberenz/playful_tutorial/wiki
+    
+To run "hello world" :
+
+    https://github.com/vincentberenz/playful_tutorial/tree/master/hello_world/hello_world
 
 For more information and download of Playful, visit:
 
