@@ -1,6 +1,6 @@
-![playful](http://playful.is.tuebingen.mpg.de/export/playful_logo.png)
+![playful](http://vincentberenz.is.tuebingen.mpg.de/export/playful_logo.png)
 
-![playful](http://playful.is.tuebingen.mpg.de/export/playful_english.png)
+![playful](http://vincentberenz.is.tuebingen.mpg.de/export/playful_english.png)
 
 # What this is
 
