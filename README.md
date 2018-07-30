@@ -13,23 +13,23 @@ Playful is a thin layer that can be placed on top over any Python robotic API, i
 
 ## overview
 
-*Is Playful for you ? To get an overview of Playful, visit: [overview](https://github.com/vincentberenz/playful_tutorial/wiki/00.-Overview)
+Is Playful for you ? To get an overview of Playful, visit: [overview](https://github.com/vincentberenz/playful_tutorial/wiki/00.-Overview)
 
 ## download and support
 
-*For more information and download of Playful, visit: [official website](http://playful.is.tuebingen.mpg.de)
+For more information and download of Playful, visit: [official website](http://playful.is.tuebingen.mpg.de)
 
 ## tutorials and documentation
 
-*To get to Playful tutorials instructions and to documentation, visit: [wiki](https://github.com/vincentberenz/playful_tutorial/wiki)
+To get to Playful tutorials instructions and to documentation, visit: [wiki](https://github.com/vincentberenz/playful_tutorial/wiki)
     
 ## hello world
 
-*To run "hello world" : [hello world](https://github.com/vincentberenz/playful_tutorial/tree/master/hello_world/hello_world)
+To run "hello world" : [hello world](https://github.com/vincentberenz/playful_tutorial/tree/master/hello_world/hello_world)
 
 ## scientific pepper
     
-*Related scientific paper: [early access](https://ieeexplore.ieee.org/document/8357389)
+Related scientific paper: [early access](https://ieeexplore.ieee.org/document/8357389)
     
 # Credits
 
