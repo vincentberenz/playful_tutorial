@@ -19,21 +19,13 @@ To run "hello world" :
 For more information and download of Playful, visit:
 
     http://playful.is.tuebingen.mpg.de
+    
+Related scientific paper:
+
+    https://ieeexplore.ieee.org/document/8357389
+    
 
 Playful has been developed at the Max Planck Institute for Intelligent Systems, Tuebingen, Germany
 
 
-```
-@ARTICLE{8357389,
-    author={V. Berenz and S. Schaal},
-    journal={IEEE Robotics Automation Magazine},
-    title={Playful: Reactive Programming for Orchestrating Robotic Behavior},
-    year={2018},
-    volume={},
-    number={},
-    pages={1-1},
-    keywords={Monitoring;Programming;Robot kinematics;Robot sensing systems;Runtime;Software},
-    doi={10.1109/MRA.2018.2803168},
-    ISSN={1070-9932},
-    month={},}
-```
+
