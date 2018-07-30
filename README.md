@@ -30,6 +30,18 @@ To run "hello world" : [hello world](https://github.com/vincentberenz/playful_tu
 ## scientific pepper
     
 Related scientific paper: [early access](https://ieeexplore.ieee.org/document/8357389)
+
+## videos
+
+These have been programmed using playful:
+
+### Max Planck Apollo
+
+[![Max Planck Apollo](http://img.youtube.com/vi/71gciiVrOsY/0.jpg)](http://www.youtube.com/watch?v=71gciiVrOsY)
+
+### Softbank Robotics Nao
+
+[![Nao](http://img.youtube.com/vi/784eL6uSKbk/0.jpg)](http://www.youtube.com/watch?v=784eL6uSKbk)
     
 # Credits
 
