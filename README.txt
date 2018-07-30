@@ -20,7 +20,7 @@ For more information and download of Playful, visit:
 
     http://playful.is.tuebingen.mpg.de
     
-Related scientific paper:
+Related scientific paper (early access):
 
     https://ieeexplore.ieee.org/document/8357389
     
