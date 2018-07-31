@@ -17,7 +17,8 @@ Is Playful for you ? To get an overview of Playful, visit: [overview](https://gi
 
 ## download and support
 
-For more information and download of Playful, visit: [official website](http://playful.is.tuebingen.mpg.de)
+* For more information and download of Playful, visit: [official website](http://playful.is.tuebingen.mpg.de)
+* Support : playful-support tuebingen mpg de
 
 ## tutorials and documentation
 
