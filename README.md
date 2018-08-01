@@ -28,7 +28,7 @@ To get to Playful tutorials instructions and to documentation, visit: [wiki](htt
 
 To run "hello world" : [hello world](https://github.com/vincentberenz/playful_tutorial/tree/master/hello_world/hello_world)
 
-## scientific pepper
+## publication
     
 Related scientific paper: [early access](https://ieeexplore.ieee.org/document/8357389)
 
