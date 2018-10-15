@@ -1,5 +1,5 @@
 
-- Below assumes you are using Ubuntu 64 bits (any version)
+- Below assumes you are using Ubuntu or MacOS 64 bits (any version)
 
 - Download playful executable from playful.is.tuebingen.mpg.de
 
