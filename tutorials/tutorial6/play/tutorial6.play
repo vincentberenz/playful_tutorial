@@ -3,4 +3,4 @@
 program:
 
 	virtual_balls_detection
-	targeting ball: ball_display
+	targeting Ball: ball_display

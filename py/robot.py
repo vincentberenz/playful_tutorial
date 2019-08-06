@@ -32,12 +32,12 @@ class Playful_tutorial_robot:
 
     @classmethod
     def start(cls):
-        print "robot says: hello !"
+        print ("robot says: hello !")
         cls.set_expression(cls.expression)
 
     @classmethod
     def stop(cls):
-        print "robot says: goodbye !"
+        print ("robot says: goodbye !")
 
     @classmethod
     def set_expression(cls,expression):

@@ -8,13 +8,17 @@ program:
 	# display the robot (the emoticon) in the terminal, always running
 	display_robot	
 
+
 	# changing the facial expression of the robot
+
 
         # example 1 : based on ''while'' keyword
 
-	smile, while is_happy
-	stay_put, while do_not_care
-	laugh, while is_amused
+	#smile, while is_happy
+	#stay_put, while do_not_care
+	#laugh, while is_amused
+
+
 
 	# example 2 : based on priority
 	# note: 'priority of 2 if is_happy, priority of -1'
@@ -24,8 +28,10 @@ program:
 	#stay_put, priority of 2 if do_not_care, priority of -1
 	#laugh, priority of 2 if is_amused, priority of -1
 
+
+
 	# example 3 : good old state machine
 
-	#smile, switch to stay_put if do_not_care, switch to laugh if is_amused
-	#stay_put, switch to smile if is_happy, switch to laugh if is_amused
-	#laugh, switch to smile if is_happy, switch to stay_put if do_not_care	
+	smile, switch to stay_put if do_not_care, switch to laugh if is_amused
+	stay_put, switch to smile if is_happy, switch to laugh if is_amused
+	laugh, switch to smile if is_happy, switch to stay_put if do_not_care	

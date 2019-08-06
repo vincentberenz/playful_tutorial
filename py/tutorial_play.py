@@ -53,8 +53,6 @@ class display(playful.Node):
         while not self.should_pause():
 
             # asking to use the "console" resource
-            # note: this resource is defined in the "resources.txt" file in
-            # the "../config/" folder. Good idea to read this file.
             if self.ask_for_resource("console"):
 
                 # access to resource was granted: displaying "value".
@@ -172,7 +170,7 @@ class mood_manager(playful.Node):
             else : current_mood = "amused"
 
             # setting value of the "mood" memory key
-            playful.memory.set("mood",current_mood)
+            playful.Memory.set("mood",current_mood)
 
             # displaying to user current mood
             playful.console("mood_manager","current mood: "+current_mood)
@@ -225,7 +223,7 @@ class laugh(set_expression):
 def is_of_mood(target_mood=None):
 
     # reading current mood from the shared memory
-    mood = playful.memory.get_value("mood") 
+    mood = playful.Memory.get("mood") 
 
     if mood is None : # may happen if mood not set yet
         return False 
@@ -271,31 +269,20 @@ class display_robot(playful.Node):
 # TUTORIAL 6 #
 ##############
 
-class position(playful.Property):
 
-    def fuse(self,value):
-        self._value=value
+# defines a ball, allowing the keyworkd "targeting"
+# to be used toward ball, e.g. targeting ball: ball_display
 
-    def similarity(self,value):
-        return None
+class Ball:
 
-class time_stamp(playful.Property):
-
-    def fuse(self,value):
-        self._value=value
-
-    def similarity(self,value):
-        return None
-
-class color(playful.Property):
-
-    def fuse(self,value):
-        self._value=value
-
-    def similarity(self,value):
-        if self._value == value :
-            return True
-        return False
+    def __init__( self,
+                  position=None,
+                  time_stamp=None,
+                  color=None ):
+        
+        self.position = position
+        self.time_stamp = time_stamp
+        self.color = color
 
 
 # Code of nodes
@@ -330,7 +317,7 @@ class virtual_balls_detection(playful.Node):
         green = _Position_manager(0,0.1)
         #you may uncomment for fun
         #red = _Position_manager(10,0.15)
-        
+
         while not self.should_pause():
 
             t = time.time()
@@ -341,14 +328,23 @@ class virtual_balls_detection(playful.Node):
             # scheme or fuse with an existing scheme (fuse functions of the properties)
 
             # the blue ball is created from start
-            playful.memory.fuse(playful.create("ball",position=blue.update(),time_stamp=t,color="BLUE"))
+            blue_ball = Ball( position=blue.update(),
+                              time_stamp=t,
+                              color="BLUE" )
+            playful.Memory.set(blue_ball,"BLUE")
 
             # the green ball is created 4 seconds after start
             if(t-time_start > 4):
-                playful.memory.fuse(playful.create("ball",position=green.update(),time_stamp=t,color="GREEN"))
+                green_ball = Ball( position=green.update(),
+                                   time_stamp=t,
+                                   color="GREEN" )
+                playful.Memory.set(green_ball,"GREEN")
 
             # uncomment for fun
-            #playful.memory.fuse(playful.create("ball",position=red.update(),time_stamp=t,color="RED"))
+            #red_ball = Ball( position=red.update(),
+            #                 time_stamp=t,
+            #                 color="RED" )
+            #playful.Memory.set(red_ball,"RED")
 
             self.spin(20)
 
@@ -364,14 +360,17 @@ class ball_display(playful.Node):
         while not self.should_pause():
         
             # the targeting keyword in the playful script associated this instance of
-            # 'ball_display' with one of the ball scheme. 'self.get_scheme_id()'
-            # returns the unique id of the ball scheme this instance is associated to,
-            # and the get_propery_value function allows to access the properties of this scheme.
-            position = playful.memory.get_property_value("position",scheme_id=self.get_scheme_id())
-            color = playful.memory.get_property_value("color",scheme_id=self.get_scheme_id())
+            # 'ball_display' with one of the ball, that is retrieved here with the get_target
+            # method
+            ball = self.get_target()
 
-            if position and color :
-                playful.console(str(id(self))," "*int(position)+str(color))
+            if ball is not None:
+            
+                position = ball.position
+                color = ball.color
+
+                if position and color :
+                    playful.console(str(id(self))," "*int(position)+str(color))
             
             self.spin(10)
 
