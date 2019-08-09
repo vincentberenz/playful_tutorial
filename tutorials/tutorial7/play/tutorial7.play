@@ -9,10 +9,10 @@ program:
 	display_robot
 
 	# display the ball (just the color spelled, e.g. 'BLUE')
-	targeting ball: ball_display
+	targeting Ball: ball_display
 
 	# the robot smiles every time a ball is close by
-	targeting ball: smile, while distance<4, priority of 2
+	targeting Ball: smile, while distance<4, priority of 2
 
 	# facial expression of the robot when not smiling
 	# (if 'distance<4' is false for all balls, then the

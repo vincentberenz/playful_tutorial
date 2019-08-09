@@ -235,18 +235,16 @@ def is_of_mood(target_mood=None):
     
 
 def is_happy():
-
-    return is_of_mood(target_mood="happy")
-
+    r = is_of_mood(target_mood="happy")
+    return r
 
 def do_not_care():
-
-    return is_of_mood(target_mood="do_not_care")
-
+    r = is_of_mood(target_mood="do_not_care")
+    return r
 
 def is_amused():
-
-    return is_of_mood(target_mood="amused")
+    r = is_of_mood(target_mood="amused")
+    return r
 
 
 

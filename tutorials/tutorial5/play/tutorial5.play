@@ -34,4 +34,5 @@ program:
 
 	smile, switch to stay_put if do_not_care, switch to laugh if is_amused
 	stay_put, switch to smile if is_happy, switch to laugh if is_amused
-	laugh, switch to smile if is_happy, switch to stay_put if do_not_care	
+	laugh, switch to smile if is_happy, switch to stay_put if do_not_care
+
