@@ -383,12 +383,11 @@ class ball_display(playful.Node):
 # along the "targeting" keyword.
 # The engine will pass the correct scheme_id parameter automatically
 
-def distance(scheme_id=None):
-
-    position = playful.memory.get_property_value("position",scheme_id=scheme_id)
-    if not position :
+def distance(target=None):
+    
+    if not target or not target.position :
         return float("+inf")
-    return abs(Playful_tutorial_robot.position-position)
+    return abs(Playful_tutorial_robot.position-target.position)
 
 
 ##############
@@ -396,8 +395,8 @@ def distance(scheme_id=None):
 ##############
 
 # evaluation that returns a number higher as the robot gets closer
-def inv_distance(scheme_id=None,base_score=None):
-    d = distance(scheme_id=scheme_id)
+def inv_distance(target=None,base_score=None):
+    d = distance(target=target)
     if d<1 : d = 1
     return base_score + 1.0/d
 
@@ -414,18 +413,18 @@ class follow(playful.Node):
             if self.ask_for_resource("wheels"):
             
                 # position of the targeted ball
-                position_ball = playful.memory.get_property_value("position",scheme_id=self.get_scheme_id())
-
-                if position_ball:
+                target = self.get_target()
+                
+                if target:
 
                     # current position of the robot
                     position_robot = Playful_tutorial_robot.position
 
                     # moving toward the ball
-                    diff = abs(position_ball - position_robot)
+                    diff = abs(target.position - position_robot)
                     move = self.speed
                     if move>diff : move = diff
-                    if position_ball > position_robot : Playful_tutorial_robot.position += move
+                    if target.position > position_robot : Playful_tutorial_robot.position += move
                     else: Playful_tutorial_robot.position -= move
                 
             else :

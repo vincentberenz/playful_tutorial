@@ -4,7 +4,7 @@ program:
 
 	virtual_balls_detection
 	display_robot
-	targeting ball: ball_display
-	targeting ball: ball_interaction, priority of inv_distance | base_score=1.0 ; speed=0.1
+	targeting Ball: ball_display
+	targeting Ball: ball_interaction, priority of inv_distance | base_score=1.0 ; speed=0.1
 	stay_put, priority of 1
 	

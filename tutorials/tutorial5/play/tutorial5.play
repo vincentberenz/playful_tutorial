@@ -14,9 +14,9 @@ program:
 
         # example 1 : based on ''while'' keyword
 
-	#smile, while is_happy
-	#stay_put, while do_not_care
-	#laugh, while is_amused
+	smile, while is_happy
+	stay_put, while do_not_care
+	laugh, while is_amused
 
 
 
@@ -32,7 +32,7 @@ program:
 
 	# example 3 : good old state machine
 
-	smile, switch to stay_put if do_not_care, switch to laugh if is_amused
-	stay_put, switch to smile if is_happy, switch to laugh if is_amused
-	laugh, switch to smile if is_happy, switch to stay_put if do_not_care
+	#smile, switch to stay_put if do_not_care, switch to laugh if is_amused
+	#stay_put, switch to smile if is_happy, switch to laugh if is_amused
+	#laugh, switch to smile if is_happy, switch to stay_put if do_not_care
 
