@@ -4,30 +4,28 @@
 
 # What this is
 
-This is a tutorial for Playful. Playful is a behavior orchestration software for robotics.
-It is meant for professional roboticists who want to acquire the skill to develop reactive complex behavior.
-
+This is a tutorial for Playful. Playful is an interpreter for reactive programming.
+It can be used as a behavior orchestration software for robotics.
 Playful is a thin layer that can be placed on top over any Python robotic API, including ROS and NaoQi.
 
 # Links
+
+## installation and source
+
+[github](https://github.com/vincentberenz/playful)
 
 ## overview
 
 Is Playful for you ? To get an overview of Playful, visit: [overview](https://github.com/vincentberenz/playful_tutorial/wiki/00.-Overview)
 
-## download and support
+## support
 
-* For more information and download of Playful, visit: [official website](http://playful.is.tuebingen.mpg.de)
 * Support : playful-support tuebingen mpg de
 
 ## tutorials and documentation
 
 To get to Playful tutorials instructions and to documentation, visit: [wiki](https://github.com/vincentberenz/playful_tutorial/wiki)
     
-## hello world
-
-To run "hello world" : [hello world](https://github.com/vincentberenz/playful_tutorial/tree/master/hello_world/hello_world)
-
 ## publication
     
 Related scientific paper: [early access](https://ieeexplore.ieee.org/document/8357389)
