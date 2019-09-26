@@ -11,8 +11,12 @@ Playful is a thin layer that can be placed on top over any Python robotic API, i
 # Links
 
 ## installation and source
-
-[github](https://github.com/vincentberenz/playful)
+Playful can be installed with pip:
+```bash
+pip install playful
+```
+The source can be found on github:
+[playful github](https://github.com/vincentberenz/playful)
 
 ## overview
 
@@ -28,7 +32,8 @@ To get to Playful tutorials instructions and to documentation, visit: [wiki](htt
     
 ## publication
     
-Related scientific paper: [early access](https://ieeexplore.ieee.org/document/8357389)
+Related scientific paper: [
+The Playful Software Platform: Reactive Programming for Orchestrating Robotic Behavior ](https://ieeexplore.ieee.org/document/8357389)
 
 ## videos
 
