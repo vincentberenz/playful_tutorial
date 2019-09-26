@@ -1,7 +1,0 @@
-# see : https://github.com/vincentberenz/playful_tutorial/wiki
-
-
-ball_interaction | speed=0.1 :
-	smile, while distance < 3, priority of 2
-	#laugh, while distance < 7, priority of 1
-	follow | speed=speed
