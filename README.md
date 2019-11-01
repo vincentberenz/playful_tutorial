@@ -13,6 +13,7 @@ Playful is a thin layer that can be placed on top over any Python robotic API, i
 ## installation and source
 Playful can be installed with pip:
 ```bash
+pip install funcsigs 
 pip install playful
 ```
 The source can be found on github:
